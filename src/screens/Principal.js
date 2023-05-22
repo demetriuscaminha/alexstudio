@@ -3,22 +3,8 @@ import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-
-function Inicio() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Inicio!</Text>
-    </View>
-  );
-}
-
-function Calendario() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Calendario!</Text>
-    </View>
-  );
-}
+import Inicio from './Inicio';
+import Reservas from './Reservas';
 
 function Clientes() {
   return (
@@ -50,17 +36,17 @@ export default function Principal() {
         name="Inicio"
         component={Inicio}
         options={{
-            tabBarLabel: 'Home',
+            tabBarLabel: 'Início',
             tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
             ),
         }}
         />
         <Tab.Screen
-            name="Calendario"
-            component={Calendario}
+            name="Reservas"
+            component={Reservas}
             options={{
-            tabBarLabel: 'Calendario',
+            tabBarLabel: 'Reservas',
             tabBarIcon: ({ color, size }) => (
                 <MaterialCommunityIcons name="calendar-month" color={color} size={size} />
             ),

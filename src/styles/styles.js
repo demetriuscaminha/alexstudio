@@ -7,10 +7,20 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    content: {
+      padding: 20,
+    },
     button: {
         width: "100%",
         marginTop: 10
-    },  
+    },
+    addButton: {
+      justifyContent: 'flex-end',
+      alignItems: 'flex-end',
+      marginVertical: 15,
+      marginHorizontal: 20
+      
+    },
 });
 
 export default styles
