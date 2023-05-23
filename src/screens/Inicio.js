@@ -29,8 +29,8 @@ export default function Inicio({navigation}) {
     console.log('Botão clicado!');
   }
   
-  const ServicoListCabelo = () => {
-    navigation.navigate("ServicoListCabelo")
+  const ServicoCabelo = () => {
+    navigation.navigate("ServicoCabelo")
   }
 
   return (
@@ -50,7 +50,7 @@ export default function Inicio({navigation}) {
 
       <View>
         <View style={styles.row}>
-          <TouchableOpacity style={styles.button} onPress={() => ServicoListCabelo()}>
+          <TouchableOpacity style={styles.button} onPress={() => ServicoCabelo()}>
             <Ionicons name="cut" size={32} color="white" />
             <Text style={styles.buttonText}>Cabelo</Text>
           </TouchableOpacity>
