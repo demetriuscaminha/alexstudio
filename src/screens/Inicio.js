@@ -12,10 +12,6 @@ const carouselData = [
   { id: 5, image: require('../../assets/images/05.jpg') },
 ];
 
-const actioBtn = () => {
-  console.log('Botão clicado!');
-}
-
 const renderItem = ({ item }) => {
   return (
     <View style={styles.grid}>
@@ -28,6 +24,14 @@ const renderItem = ({ item }) => {
 
 export default function Inicio({navigation}) {
   const windowWidth = Dimensions.get('window').width;
+
+  const actioBtn = () => {
+    console.log('Botão clicado!');
+  }
+  
+  const ServicoListCabelo = () => {
+    navigation.navigate("ServicoListCabelo")
+  }
 
   return (
     <View style={styles.content}>
@@ -46,23 +50,23 @@ export default function Inicio({navigation}) {
 
       <View>
         <View style={styles.row}>
-          <TouchableOpacity style={styles.button} onPress={actioBtn}>
+          <TouchableOpacity style={styles.button} onPress={() => ServicoListCabelo()}>
             <Ionicons name="cut" size={32} color="white" />
             <Text style={styles.buttonText}>Cabelo</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={actioBtn}>
             <Ionicons name="cut" size={32} color="white" />
-            <Text style={styles.buttonText}>Cabelo</Text>
+            <Text style={styles.buttonText}>Manicure</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.row}>
           <TouchableOpacity style={styles.button} onPress={actioBtn}>
             <Ionicons name="cut" size={32} color="white" />
-            <Text style={styles.buttonText}>Cabelo</Text>
+            <Text style={styles.buttonText}>Maquiagem</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={actioBtn}>
             <Ionicons name="cut" size={32} color="white" />
-            <Text style={styles.buttonText}>Cabelo</Text>
+            <Text style={styles.buttonText}>Depilação</Text>
           </TouchableOpacity>
         </View>
       </View>

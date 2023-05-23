@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button, Input, Text } from 'react-native-elements'
-import { TouchableOpacity, View } from 'react-native'
-import styles from '../styles/styles'
+import { Dimensions, StyleSheet, TouchableOpacity, View } from 'react-native'
+import styles from '../styles/styles';
 
 export default function Login({navigation}) {
-
+  
   const cadastrar = () => {
     navigation.navigate("Cadastro")
   }
@@ -25,12 +25,13 @@ export default function Login({navigation}) {
         </TouchableOpacity>{' '}
         .
       </Text>
-      <View>
+      <View style={styles.content}>
         <Input
           placeholder="E-mail"
           onChangeText={value => {setEmail(value)}}
           keyboardType='email-address'
           rightIcon={{ type: 'font-awesome', name: 'envelope'}}
+          inputStyle={styles.inputField}
         />
         <Input
           placeholder="Sua Senha"
