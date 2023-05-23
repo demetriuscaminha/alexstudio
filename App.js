@@ -7,7 +7,7 @@ import EsqueceuSenha from './src/screens/EsqueceuSenha';
 import Principal from './src/screens/Principal';
 import Reservas from './src/screens/Reservas';
 import AdicionarReserva from './src/screens/AdicionarReserva';
-import ServicoCabelo from './src/screens/ServicoListCabelo';
+import ServicoCabelo from './src/screens/ServicoCabelo';
 
 const Stack = createStackNavigator();
 

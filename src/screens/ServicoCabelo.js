@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
-import ServicoListCabelo from './ServicoListCabelo';
+import ServicoListCabelo from '../components/ServicoListCabelo';
 
 const DATA = [
   { id: '1', servico: 'Corte Feminino', valor: 'R$ 70,00', botao: 'Agendar' },
