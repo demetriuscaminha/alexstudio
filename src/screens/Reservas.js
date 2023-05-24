@@ -6,7 +6,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function Reservas({ navigation }) {
   const adicionarReserva = () => {
-    navigation.navigate("AdicionarReserva");
+    navigation.navigate("Agendamento");
   };
 
   return (
@@ -23,7 +23,7 @@ export default function Reservas({ navigation }) {
           <View style={styles.row}>
             <Ionicons name="calendar-outline" size={24} color='#7A1E48' />
             <Text>22.02.2023</Text>
-          </View>
+          </View> 
           <View style={styles.row}>
             <Ionicons name="alarm-outline" size={24} color='#7A1E48' />
             <Text>10:30</Text>
@@ -41,7 +41,12 @@ export default function Reservas({ navigation }) {
         <View>
           <Button
             title="Cancelar Reserva"
-            buttonStyle={{width: 150}}
+            buttonStyle={{width: 150, backgroundColor: '#7A1E48', borderRadius: 6}}
+            onPress={() => mainPage()}
+          />
+          <Button
+            title="Editar Reserva"
+            buttonStyle={{width: 150, backgroundColor: '#7A1E48', borderRadius: 6, marginTop: 10,}}
             onPress={() => mainPage()}
           />
         </View>
