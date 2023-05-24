@@ -38,12 +38,22 @@ const styles = StyleSheet.create({
         width: windowWidth,
         marginTop: 10
     },
-    addButton: {
+    addButtonView: {
       justifyContent: 'flex-end',
       alignItems: 'flex-end',
-      marginVertical: 15,
-      marginHorizontal: 20
-      
+      marginVertical: 10,
+      marginHorizontal: 20,
+    },
+    addButton: {
+      backgroundColor: mainColor,
+      width: windowWidth * 0.4,
+      height: 42,
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: 4
+    },
+    textAddButton: {
+      color: 'white',
     },
 });
 

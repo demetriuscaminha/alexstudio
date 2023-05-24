@@ -8,6 +8,7 @@ import Principal from './src/screens/Principal';
 import Reservas from './src/screens/Reservas';
 import AdicionarReserva from './src/screens/AdicionarReserva';
 import ServicoCabelo from './src/screens/ServicoCabelo';
+import Agendamento from './src/screens/Agendamento';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ function MyStack() {
       <Stack.Screen name="Reservas" component={Reservas} />
       <Stack.Screen name="AdicionarReserva" component={AdicionarReserva}/>
       <Stack.Screen name="ServicoCabelo" component={ServicoCabelo}/>
+      <Stack.Screen name="Agendamento" component={Agendamento}/>
     </Stack.Navigator>
   );
 }

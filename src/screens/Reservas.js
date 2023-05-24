@@ -11,15 +11,15 @@ export default function Reservas({ navigation }) {
 
   return (
     <View tyle={styles.content}>
-      <View>
+      <View style={styles.addButtonView}>
         <TouchableOpacity onPress={adicionarReserva} style={styles.addButton}>
-          <Text>+ Adicionar Reserva</Text>
+          <Text style={styles.textAddButton}>+ Adicionar Reserva</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.row}>
         <View style={styles.halfBox}>
-          <Text>Corte Feminino</Text>
+          <Text style={{fontSize: 18, fontWeight: 'bold'}}>Corte Feminino</Text>
           <View style={styles.row}>
             <Ionicons name="calendar-outline" size={24} color='#7A1E48' />
             <Text>22.02.2023</Text>
