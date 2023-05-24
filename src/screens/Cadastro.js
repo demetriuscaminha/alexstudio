@@ -49,7 +49,7 @@ export default function Cadastro() {
       />
       <Button
         title="Salvar"
-        buttonStyle={styles.button}
+        buttonStyle={{width: '100%'}}
         onPress={() => mainPage()}
       />
     </View>

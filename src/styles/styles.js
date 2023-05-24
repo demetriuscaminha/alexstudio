@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     },
     content: {
       width: windowWidth,
+      backgroundColor: '#fff',
       padding: 20,
     },
     defaultColor: {
@@ -34,9 +35,16 @@ const styles = StyleSheet.create({
     inputField: {
       width: windowWidth *0.8,
     },
+    card: {
+      flex: 1,
+      flexDirection: 'row',
+      padding: 20,
+      justifyContent: 'space-between',
+    },
     button: {
-        width: windowWidth,
-        marginTop: 10
+        width: windowWidth*0.8,
+        marginTop: 10,
+        backgroundColor: '#7A1E48',
     },
     addButtonView: {
       justifyContent: 'flex-end',
@@ -52,8 +60,93 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       borderRadius: 4
     },
+    buttonTouch:{
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#7A1E48',
+      width: windowWidth *0.9,
+      height: 55,
+      borderRadius: 10,
+    },
+    buttonTouchText: {
+      color: 'white',
+      fontWeight: "bold",
+    },
     textAddButton: {
       color: 'white',
+    },
+    titleCategory: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      color: '#707070',
+      marginVertical: 20,
+    },
+    dataBox:{
+      height: 75,
+      width: 65,
+      borderColor: '#C7CBCF',
+      borderWidth: 1,
+      borderRadius: 12,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginRight: 15
+    },
+    scrollView: {
+      height: 80,
+      marginTop: 10,
+      backgroundColor: 'white',
+    },
+    timeContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginTop: 0,
+      borderColor: '#C7CBCF',
+      borderBottomWidth: 1,
+      paddingVertical: 10,
+    },
+    freeArea: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    radio: {
+      height: 15,
+      width: 15,
+      borderWidth: 1,
+      borderRadius: 30,
+      borderColor: '#7D8392',
+      marginLeft: 10,
+    },
+    itemContainer: {
+      backgroundColor: "#fff",
+      marginVertical: 10,
+      marginHorizontal: 0,
+      paddingBottom: 10,
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      flexDirection: 'row',
+      borderColor: '#C7CBCF',
+      borderBottomWidth: 1,
+    },
+    servico: {
+      fontSize: 16,
+      fontWeight: "bold",
+    },
+    valor: {
+      fontSize: 14,
+      color: "#7A1E48",
+    },
+    botaoContainer: {
+      marginTop: 10,
+      backgroundColor: "#7A1E48",
+      paddingHorizontal: 20,
+      paddingVertical: 8,
+      borderRadius: 5,
+    },
+    botaoText: {
+      color: "#fff",
+      fontWeight: "bold",
+      textAlign: "center",
     },
 });
 

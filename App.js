@@ -8,6 +8,7 @@ import Principal from './src/screens/Principal';
 import Reservas from './src/screens/Reservas';
 import AdicionarReserva from './src/screens/AdicionarReserva';
 import ServicoCabelo from './src/screens/ServicoCabelo';
+import Clientes from './src/screens/Clientes';
 import Agendamento from './src/screens/Agendamento';
 
 const Stack = createStackNavigator();
@@ -15,7 +16,7 @@ const Stack = createStackNavigator();
 function MyStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="EsqueceuSenha" component={EsqueceuSenha} />
       <Stack.Screen name="Cadastro" component={Cadastro} />
@@ -23,6 +24,7 @@ function MyStack() {
       <Stack.Screen name="Reservas" component={Reservas} />
       <Stack.Screen name="AdicionarReserva" component={AdicionarReserva}/>
       <Stack.Screen name="ServicoCabelo" component={ServicoCabelo}/>
+      <Stack.Screen name="Clientes" component={Clientes}/>
       <Stack.Screen name="Agendamento" component={Agendamento}/>
     </Stack.Navigator>
   );

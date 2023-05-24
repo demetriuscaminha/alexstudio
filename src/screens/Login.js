@@ -30,23 +30,21 @@ export default function Login({navigation}) {
           placeholder="E-mail"
           onChangeText={value => {setEmail(value)}}
           keyboardType='email-address'
-          rightIcon={{ type: 'font-awesome', name: 'envelope'}}
+          rightIcon={{type: 'font-awesome', name: 'envelope', size: 14}}
           inputStyle={styles.inputField}
         />
         <Input
           placeholder="Sua Senha"
-          rightIcon={{ type: 'font-awesome', name: 'lock' }}
+          rightIcon={{ type: 'font-awesome', name: 'lock', size: 18 }}
           onChangeText={value => setPassword(value)}
           secureTextEntry={true}
         />
-        <TouchableOpacity onPress={esqueceu}>
+        <TouchableOpacity onPress={esqueceu} style={{marginBottom:20,}}>
           <Text>Esqueceu a senha?</Text>
         </TouchableOpacity>
-        <Button
-          title="ACESSAR"
-          buttonStyle={styles.button}
-          onPress={() => mainPage()}
-        />
+        <TouchableOpacity onPress={() => mainPage()} style={styles.buttonTouch}>
+          <Text style={styles.buttonTouchText}>ACESSAR</Text>
+        </TouchableOpacity>
       </View>
     </View>
   )

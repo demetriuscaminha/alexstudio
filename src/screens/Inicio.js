@@ -44,8 +44,8 @@ export default function Inicio({navigation}) {
         showsHorizontalScrollIndicator={false}
       />
 
-      <View>
-          <Text>CATEGORIA DE SERVIÇOS</Text>
+      <View style={{paddingVertical: 20}}>
+          <Text style={{fontSize: 18, fontWeight: 'bold', color:'#707070'}}>CATEGORIA DE SERVIÇOS</Text>
       </View>
 
       <View>

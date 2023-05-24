@@ -1,45 +1,122 @@
-import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Calendar } from 'react-native-calendars';
-import RNPickerSelect from 'react-native-picker-select';
+import React from "react";
+import { Button, Text } from "react-native-elements";
+import { ScrollView, SafeAreaView, View, TouchableOpacity } from "react-native";
+import styles from "../styles/styles";
 
-const Agendamento = () => {
-  const [selectedDate, setSelectedDate] = useState('');
-  const [selectedTime, setSelectedTime] = useState('');
-
-  const handleDateSelect = (date) => {
-    setSelectedDate(date);
-  };
-
-  const handleTimeSelect = (time) => {
-    setSelectedTime(time);
-  };
-
+export default function Agendamento() {
   return (
-    <View style={styles.container}>
-      <Calendar onDayPress={handleDateSelect} />
+    <SafeAreaView style={{ padding: 20, backgroundColor: "white" }}>
+      <Text style={styles.titleCategory}>Reserve uma data</Text>
+      <ScrollView style={styles.scrollView} horizontal>
+        <View style={styles.dataBox}>
+          <Text>Jun</Text>
+          <Text style={{ fontWeight: "bold", fontSize: 22 }}>1</Text>
+        </View>
+        <View style={styles.dataBox}>
+          <Text>Jun</Text>
+          <Text style={{ fontWeight: "bold", fontSize: 22 }}>2</Text>
+        </View>
+        <View style={styles.dataBox}>
+          <Text>Jun</Text>
+          <Text style={{ fontWeight: "bold", fontSize: 22 }}>3</Text>
+        </View>
+        <View style={styles.dataBox}>
+          <Text>Jun</Text>
+          <Text style={{ fontWeight: "bold", fontSize: 22 }}>4</Text>
+        </View>
+        <View style={styles.dataBox}>
+          <Text>Jun</Text>
+          <Text style={{ fontWeight: "bold", fontSize: 22 }}>5</Text>
+        </View>
+        <View style={styles.dataBox}>
+          <Text>Jun</Text>
+          <Text style={{ fontWeight: "bold", fontSize: 22 }}>6</Text>
+        </View>
+      </ScrollView>
 
-      <RNPickerSelect
-        placeholder={{ label: 'Selecione um horário', value: null }}
-        onValueChange={handleTimeSelect}
-        items={[
-          { label: '09:00', value: '09:00' },
-          { label: '10:00', value: '10:00' },
-          { label: '11:00', value: '11:00' },
-          // Adicione mais opções de horários conforme necessário
-        ]}
-      />
-    </View>
+      <View>
+        <Text style={styles.titleCategory}>Reserve um horário</Text>
+        <View style={styles.timeContainer}>
+          <View>
+            <Text style={{ color: "#707070" }}>07:00 - 08:00</Text>
+          </View>
+          <View style={styles.freeArea}>
+            <Text style={{ color: "#707070" }}>Livre</Text>
+            <Text style={styles.radio}></Text>
+          </View>
+        </View>
+        <View style={styles.timeContainer}>
+          <View>
+            <Text style={{ color: "#707070" }}>08:00 - 09:00</Text>
+          </View>
+          <View style={styles.freeArea}>
+            <Text style={{ color: "#707070" }}>Livre</Text>
+            <Text style={styles.radio}></Text>
+          </View>
+        </View>
+        <View style={styles.timeContainer}>
+          <View>
+            <Text style={{ color: "#707070" }}>10:00 - 11:00</Text>
+          </View>
+          <View style={styles.freeArea}>
+            <Text style={{ color: "#707070" }}>Livre</Text>
+            <Text style={styles.radio}></Text>
+          </View>
+        </View>
+        <View style={styles.timeContainer}>
+          <View>
+            <Text style={{ color: "#707070" }}>11:00 - 12:00</Text>
+          </View>
+          <View style={styles.freeArea}>
+            <Text style={{ color: "#707070" }}>Livre</Text>
+            <Text style={styles.radio}></Text>
+          </View>
+        </View>
+        <View style={styles.timeContainer}>
+          <View>
+            <Text style={{ color: "#707070" }}>13:00 - 14:00</Text>
+          </View>
+          <View style={styles.freeArea}>
+            <Text style={{ color: "#707070" }}>Livre</Text>
+            <Text style={styles.radio}></Text>
+          </View>
+        </View>
+        <View style={styles.timeContainer}>
+          <View>
+            <Text style={{ color: "#707070" }}>14:00 - 15:00</Text>
+          </View>
+          <View style={styles.freeArea}>
+            <Text style={{ color: "#707070" }}>Livre</Text>
+            <Text style={styles.radio}></Text>
+          </View>
+        </View>
+        <View style={styles.timeContainer}>
+          <View>
+            <Text style={{ color: "#707070" }}>15:00 - 16:00</Text>
+          </View>
+          <View style={styles.freeArea}>
+            <Text style={{ color: "#707070" }}>Livre</Text>
+            <Text style={styles.radio}></Text>
+          </View>
+        </View>
+        <View style={styles.timeContainer}>
+          <View>
+            <Text style={{ color: "#707070" }}>16:00 - 17:00</Text>
+          </View>
+          <View style={styles.freeArea}>
+            <Text style={{ color: "#707070" }}>Livre</Text>
+            <Text style={styles.radio}></Text>
+          </View>
+        </View>
+      </View>
+
+      <View>
+        <View style={{marginTop: 30}}>
+          <TouchableOpacity style={styles.buttonTouch}>
+            <Text style={styles.buttonTouchText}>Confirmar</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </SafeAreaView>
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-  },
-});
-
-export default Agendamento;
+}

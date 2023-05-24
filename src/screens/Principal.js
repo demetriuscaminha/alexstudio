@@ -5,14 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Inicio from './Inicio';
 import Reservas from './Reservas';
-
-function Clientes() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Clientes!</Text>
-    </View>
-  );
-}
+import Clientes from './Clientes';
 
 function Config() {
   return (
@@ -29,7 +22,7 @@ export default function Principal() {
         <Tab.Navigator
             initialRouteName="Inicio"
             screenOptions={{
-            tabBarActiveTintColor: '#e91e63',
+            tabBarActiveTintColor: '#7A1E48',
             }}
         >
         <Tab.Screen

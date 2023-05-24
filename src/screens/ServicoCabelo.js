@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
+import { View, StyleSheet, FlatList, TouchableOpacity, SafeAreaView } from "react-native";
 import ServicoListCabelo from "../components/ServicoListCabelo";
 import { Text } from "react-native-elements";
 
@@ -12,9 +12,6 @@ const DATA = [
 ];
 
 const ServicoCabelo = () => {
-  const handleAgendar = () => {
-    // Navegue para a página desejada
-  };
 
   const renderItem = ({ item }) => (
     <ServicoListCabelo
@@ -26,19 +23,18 @@ const ServicoCabelo = () => {
   );
 
   return (
-    <View style={styles.container}>
-      <View>
-        <Text style={{padding: 20, textAlign: 'center', fontSize: 20, fontWeight: 'bold'}}>Selecione um serviço</Text>
+    <SafeAreaView style={{ flex: 1, padding: 20, backgroundColor: "white" }}>
+      <View style={styles.container}>
+        <View>
+          <Text style={{fontSize: 20, fontWeight: 'bold', marginBottom: 15}}>Selecione um serviço</Text>
+        </View>
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+        />
       </View>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
-      <TouchableOpacity style={styles.botaoContainer} onPress={handleAgendar}>
-        <Text style={styles.botaoText}>Agendar</Text>
-      </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 
