@@ -19,9 +19,22 @@ const styles = StyleSheet.create({
       backgroundColor: mainColor,
     },
     row: {
+      width: windowWidth,
       flexDirection: 'row',
       alignItems: 'center',
       gap: 10
+    },
+    carouselItem: {
+      width: Dimensions.get('window').width * 0.8,
+      height: 200,
+      marginHorizontal: 10,
+    },
+    carouselImage: {
+      flex: 1,
+      resizeMode: 'cover',
+      height: 200,
+      width: 320,
+      borderRadius: 10,
     },
     column: {
       flexDirection: 'column',
@@ -41,10 +54,20 @@ const styles = StyleSheet.create({
       padding: 20,
       justifyContent: 'space-between',
     },
+    grid: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      marginVertical: 20,
+    },
+    grid2x2: {
+      width: '50%',
+    },
     button: {
-        width: windowWidth*0.8,
         marginTop: 10,
         backgroundColor: '#7A1E48',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius:6
     },
     addButtonView: {
       justifyContent: 'flex-end',
@@ -148,6 +171,18 @@ const styles = StyleSheet.create({
       fontWeight: "bold",
       textAlign: "center",
     },
+    badge: {
+      backgroundColor: '#EEE7EA',
+      borderColor: '#7A1E48',
+      borderStyle: 'solid',
+      borderWidth: 1,
+      padding: 20
+    },
+    titleBadge: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      marginBottom: 5
+    }
 });
 
 export default styles

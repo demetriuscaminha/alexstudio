@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Image, FlatList, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 import { Text } from 'react-native-elements';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import styles from '../styles/styles';
 
 
 const carouselData = [
@@ -14,9 +15,11 @@ const carouselData = [
 
 const renderItem = ({ item }) => {
   return (
-    <View style={styles.grid}>
-      <View style={styles.carouselItem}>
-        <Image source={item.image} style={styles.image} />
+    <View style={styles.container}>
+      <View style={styles.grid}>
+        <View style={styles.carouselItem}>
+          <Image source={item.image} style={styles.carouselImage} />
+        </View>
       </View>
     </View>
   );
@@ -44,29 +47,33 @@ export default function Inicio({navigation}) {
         showsHorizontalScrollIndicator={false}
       />
 
-      <View style={{paddingVertical: 20}}>
+      <View style={{marginTop: 20}}>
           <Text style={{fontSize: 18, fontWeight: 'bold', color:'#707070'}}>CATEGORIA DE SERVIÇOS</Text>
       </View>
 
-      <View>
-        <View style={styles.row}>
-          <TouchableOpacity style={styles.button} onPress={() => ServicoCabelo()}>
+      <View style={styles.grid}>
+        <View style={styles.grid2x2}>
+          <TouchableOpacity style={[styles.button, {height: 80, marginHorizontal:10, marginVertical: 10}]} onPress={() => ServicoCabelo()}>
             <Ionicons name="cut" size={32} color="white" />
-            <Text style={styles.buttonText}>Cabelo</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={actioBtn}>
-            <Ionicons name="cut" size={32} color="white" />
-            <Text style={styles.buttonText}>Manicure</Text>
+            <Text style={styles.buttonTouchText}>Cabelo</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.row}>
-          <TouchableOpacity style={styles.button} onPress={actioBtn}>
+        <View style={styles.grid2x2}>
+          <TouchableOpacity style={[styles.button, {height: 80, marginHorizontal:10}]} onPress={actioBtn}>
             <Ionicons name="cut" size={32} color="white" />
-            <Text style={styles.buttonText}>Maquiagem</Text>
+            <Text style={styles.buttonTouchText}>Manicure</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={actioBtn}>
+        </View>
+        <View style={styles.grid2x2}>
+          <TouchableOpacity style={[styles.button, {height: 80, marginHorizontal:10}]} onPress={actioBtn}>
             <Ionicons name="cut" size={32} color="white" />
-            <Text style={styles.buttonText}>Depilação</Text>
+            <Text style={styles.buttonTouchText}>Maquiagem</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.grid2x2}>
+          <TouchableOpacity style={[styles.button, {height: 80, marginHorizontal:10}]} onPress={actioBtn}>
+            <Ionicons name="cut" size={32} color="white" />
+            <Text style={styles.buttonTouchText}>Depilação</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -79,53 +86,3 @@ export default function Inicio({navigation}) {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      padding: 20
-    },
-    content: {
-      padding: 20
-    },
-    carouselItem: {
-      width: Dimensions.get('window').width * 0.8,
-      height: 200,
-      marginHorizontal: 10,
-    },
-    image: {
-      flex: 1,
-      resizeMode: 'cover',
-      height: 200,
-      width: 320,
-      borderRadius: 10,
-    },
-    row: {
-        flexDirection: 'row',
-        marginBottom: 20,
-        width: Dimensions.get('window').width,
-    },
-    button: {
-      width: Dimensions.get('window').width * 0.4,
-      backgroundColor: '#7A1E48',
-      marginRight: 20,
-      flexDirection: 'column',
-      alignItems: 'center',
-      padding: 10,
-    },
-    buttonText: {
-      color: 'white'
-    },
-    badge: {
-      backgroundColor: '#EEE7EA',
-      borderColor: '#7A1E48',
-      borderStyle: 'solid',
-      borderWidth: 1,
-      padding: 20
-    },
-    titleBadge: {
-      fontSize: 20,
-      fontWeight: 'bold',
-      marginBottom: 5
-    }
-});

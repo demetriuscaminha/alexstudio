@@ -1,9 +1,12 @@
-import React from 'react'
-import { Button, Input, Text } from 'react-native-elements'
-import { Dimensions, StyleSheet, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react';
+import { Input, Text } from 'react-native-elements'
+import { TouchableOpacity, View } from 'react-native'
 import styles from '../styles/styles';
 
 export default function Login({navigation}) {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   
   const cadastrar = () => {
     navigation.navigate("Cadastro")
@@ -18,13 +21,7 @@ export default function Login({navigation}) {
   return (
     <View style={styles.container}>
       <Text>Logo</Text>
-      <Text>
-        Entre com Login e Senha ou{' '}
-        <TouchableOpacity onPress={cadastrar}>
-          <Text>Registre-se</Text>
-        </TouchableOpacity>{' '}
-        .
-      </Text>
+
       <View style={styles.content}>
         <Input
           placeholder="E-mail"
@@ -35,15 +32,19 @@ export default function Login({navigation}) {
         />
         <Input
           placeholder="Sua Senha"
-          rightIcon={{ type: 'font-awesome', name: 'lock', size: 18 }}
+          leftIcon={{ type: 'font-awesome', name: 'lock', size: 19 }}
+          rightIcon={{ type: 'font-awesome', name: 'eye', size: 19 }}
           onChangeText={value => setPassword(value)}
           secureTextEntry={true}
         />
-        <TouchableOpacity onPress={esqueceu} style={{marginBottom:20,}}>
-          <Text>Esqueceu a senha?</Text>
+        <TouchableOpacity onPress={() => mainPage()} style={[styles.buttonTouch, { marginBottom: 15 }]}>
+          <Text style={styles.buttonTouchText}>ENTRAR</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => mainPage()} style={styles.buttonTouch}>
-          <Text style={styles.buttonTouchText}>ACESSAR</Text>
+        <TouchableOpacity onPress={esqueceu}  style={styles.buttonTouch}>
+          <Text style={styles.buttonTouchText}>ESQUECI MINHA SENHA</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={cadastrar} style={{alignItems: 'center', marginTop: 15}}>
+          <Text>INSCREVA-SE</Text>
         </TouchableOpacity>
       </View>
     </View>

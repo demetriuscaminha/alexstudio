@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Button, Input, Text } from 'react-native-elements'
-import { View } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
 import styles from '../styles/styles'
 
-export default function Cadastro() {
+export default function Cadastro({ navigation }) {
+
+  const [nome, setNome] = useState('');
+  const [cpf, setCPF] = useState('');
+  const [apelido, setApelido] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [dataNasc, setDataNasc] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const mainPage = () => {
     navigation.navigate("Principal")
@@ -14,44 +22,36 @@ export default function Cadastro() {
       <Text>Logo</Text>
       <Input
         placeholder="Nome Completo"
-        onChangeText={value => setCNaome(value)}
-        secureTextEntry={true}
-      />
+        onChangeText={value => setNome(value)}
+        />
       <Input
         placeholder="CPF"
         onChangeText={value => setCPF(value)}
-        secureTextEntry={true}
       />
       <Input
         placeholder="Apelido"
         onChangeText={value => setApelido(value)}
-        secureTextEntry={true}
       />
       <Input
         placeholder="Telefone"
         onChangeText={value => setTelefone(value)}
-        secureTextEntry={true}
       />
       <Input
         placeholder="Data de Nascimento"
         onChangeText={value => setDataNasc(value)}
-        secureTextEntry={true}
       />
       <Input
         placeholder="E-mail"
         onChangeText={value => setEmail(value)}
-        secureTextEntry={true}
       />
       <Input
         placeholder="Senha"
         onChangeText={value => setPassword(value)}
         secureTextEntry={true}
       />
-      <Button
-        title="Salvar"
-        buttonStyle={{width: '100%'}}
-        onPress={() => mainPage()}
-      />
+      <TouchableOpacity onPress={() => mainPage()} style={styles.buttonTouch}>
+        <Text style={styles.buttonTouchText}>Salvar Cadastro</Text>
+      </TouchableOpacity>
     </View>
   )
 }
