@@ -15,14 +15,8 @@ export function EntradaTexto({ label, value, onChangeText, secureTextEntry, erro
         onChangeText={onChangeText}
         style={estilos.input}
         mode="outlined"
-        activeOutlineColor='#7a1e48'
-        right={
-          secureTextEntry ?
-          <TextInput.Icon
-            name={secureMode ? 'eye-off' : 'eye'}
-            onPress={() => setSecureMode(!secureMode)}
-          /> : null
-        }
+        activeOutlineColor='#7A1E48'
+        right={ secureTextEntry ? <TextInput.Icon color="#22C55E" icon={secureMode ? 'eye-off' : 'eye'} onPress={() => setSecureMode(!secureMode)} /> : null }
       />
       {error && <HelperText type="error" visible={error}>
         {messageError}
