@@ -13,9 +13,9 @@ const firebaseConfig = {
     measurementId: "G-CHJ0KG0CHS"
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 const auth = initializeApp(app, {
     persistence: getReactNativePersistence(AsyncStorage)
 });
-// const analytics = getAnalytics(app);
+export { auth };
