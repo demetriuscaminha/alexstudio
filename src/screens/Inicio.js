@@ -1,9 +1,10 @@
-import React from 'react';
-import { View, Image, FlatList, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
-import { Text } from 'react-native-elements';
+import React, { useEffect, useState } from 'react';
+import { ScrollView, View, Image, Text, FlatList, RefreshControl, Dimensions, TouchableOpacity } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import styles from '../styles/styles';
-
+import { listService } from '../config/Firestore';
+import Service from '../components/Service';
+import { Button } from 'react-native-elements';
 
 const carouselData = [
   { id: 1, image: require('../../assets/images/01.jpg') },
@@ -26,17 +27,29 @@ const renderItem = ({ item }) => {
 };
 
 export default function Inicio({navigation}) {
-  const windowWidth = Dimensions.get('window').width;
 
-  const actioBtn = () => {
-    console.log('Botão clicado!');
+  const [service, setService] = useState([])
+  const [refreshing, setRefreshing]= useState(false)
+
+  async function listarDadosServices(){
+    setRefreshing(true)
+    const servicesFirestore = await listService()
+    setService(servicesFirestore)
+    setRefreshing(false)
   }
-  
-  const ServicoCabelo = () => {
-    navigation.navigate("ServicoCabelo")
-  }
+
+  useEffect(() => {
+    listarDadosServices()
+  }, [])
 
   return (
+    <ScrollView style={{width: "100%"}}
+      refreshControl={
+        <RefreshControl
+          refreshing={refreshing}
+          onRefresh={listarDadosServices} />
+      }
+    >
     <View style={styles.content}>
       <FlatList
         data={carouselData}
@@ -48,41 +61,27 @@ export default function Inicio({navigation}) {
       />
 
       <View style={{marginTop: 20}}>
-          <Text style={{fontSize: 18, fontWeight: 'bold', color:'#707070'}}>CATEGORIA DE SERVIÇOS</Text>
+          <Text style={{fontSize: 18, fontWeight: 'bold', color:'#707070'}}>NOSSOS SERVIÇOS</Text>
       </View>
 
-      <View style={styles.grid}>
-        <View style={styles.grid2x2}>
-          <TouchableOpacity style={[styles.button, {height: 80, marginHorizontal:10, marginVertical: 10}]} onPress={() => ServicoCabelo()}>
-            <Ionicons name="cut" size={32} color="white" />
-            <Text style={styles.buttonTouchText}>Cabelo</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.grid2x2}>
-          <TouchableOpacity style={[styles.button, {height: 80, marginHorizontal:10}]} onPress={actioBtn}>
-            <Ionicons name="cut" size={32} color="white" />
-            <Text style={styles.buttonTouchText}>Manicure</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.grid2x2}>
-          <TouchableOpacity style={[styles.button, {height: 80, marginHorizontal:10}]} onPress={actioBtn}>
-            <Ionicons name="cut" size={32} color="white" />
-            <Text style={styles.buttonTouchText}>Maquiagem</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.grid2x2}>
-          <TouchableOpacity style={[styles.button, {height: 80, marginHorizontal:10}]} onPress={actioBtn}>
-            <Ionicons name="cut" size={32} color="white" />
-            <Text style={styles.buttonTouchText}>Depilação</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+      {
+        service.map((service) => {
+          return (
+          <View style={{marginVertical: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
+            <Text style={styles.servico}>{service.service}</Text>
+            <Text style={styles.valor}>R$ {service.preco}</Text>
+            <Button title="Fazer Reserva">Reserva</Button>
+          </View>
+          )
+        })
+      }
 
       <View style={styles.badge}>
         <Text style={styles.titleBadge}>Contato</Text>
-        <Text>José Benedito (85) 98989-5686 </Text>
-        <Text>Avenida Francisco Sá, 5383 - Álvaro Weyne</Text>
+        <Text style={{fontSize: 12}}>José Benedito (85) 98989-5686 </Text>
+        <Text style={{fontSize: 12}}>Avenida Francisco Sá, 5383 - Álvaro Weyne</Text>
       </View>
     </View>
+    </ScrollView>
   );
 };

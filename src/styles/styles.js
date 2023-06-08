@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     },
     inputField: {
       width: windowWidth *0.8,
+      marginVertical: 10
     },
     card: {
       flex: 1,
@@ -174,14 +175,34 @@ const styles = StyleSheet.create({
     badge: {
       backgroundColor: '#EEE7EA',
       borderColor: '#7A1E48',
+      borderRadius: 6,
       borderStyle: 'solid',
       borderWidth: 1,
-      padding: 20
+      paddingVertical: 10,
+      paddingHorizontal: 10,
+      marginTop: 20,
     },
     titleBadge: {
-      fontSize: 20,
+      fontSize: 16,
       fontWeight: 'bold',
       marginBottom: 5
+    },
+    buttonNewAgenda: {
+      width: 60,
+      height: 60,
+      position: 'absolute',
+      bottom: 30,
+      left: 20,
+      backgroundColor: '#7A1E48',
+      borderRadius: 50,
+      justifyContent: 'center',
+      alignItems: 'center',
+      fontWeight: 'bold'
+    },
+    buttonNewAgendaText: {
+      color: 'white',
+      fontSize: 25,
+      fontWeight: 'bold',
     }
 });
 

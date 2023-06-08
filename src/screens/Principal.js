@@ -1,16 +1,29 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { Button, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { getAuth, signOut } from 'firebase/auth';
 import Inicio from './Inicio';
 import Reservas from './Reservas';
 import Clientes from './Clientes';
 
-function Config() {
+function Config({navigation}) {
+
+  const handleLogout = async () => {
+    try {
+      const auth = getAuth();
+      await signOut(auth);
+      navigation.navigate('Login');
+    } catch (error) {
+      console.log('Erro ao fazer logout:', error);
+      // Lógica de tratamento de erro, se necessário
+    }
+  };
+
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Configurações!</Text>
+      <Button title="Simbora!" onPress={handleLogout} />
     </View>
   );
 }
@@ -56,7 +69,7 @@ export default function Principal() {
         }}
         />
         <Tab.Screen
-        name="Configurações"
+        name="Logout"
         component={Config}
         options={{
             tabBarLabel: 'Configurações',
