@@ -6,6 +6,9 @@ import { listService } from '../config/Firestore';
 import Service from '../components/Service';
 import { Button } from 'react-native-elements';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
 const carouselData = [
   { id: 1, image: require('../../assets/images/01.jpg') },
   { id: 2, image: require('../../assets/images/02.jpg') },
@@ -35,11 +38,25 @@ export default function Inicio({navigation}) {
     setRefreshing(true)
     const servicesFirestore = await listService()
     setService(servicesFirestore)
+
+    console.log({servicesFirestore})
     setRefreshing(false)
   }
 
   useEffect(() => {
     listarDadosServices()
+  }, [])
+
+  useEffect(() => {
+    async function init() {
+
+      const user = await AsyncStorage.getItem('@user')
+
+      console.log({user: JSON.parse(user)})
+    }
+
+    init()
+    
   }, [])
 
   return (
@@ -67,10 +84,10 @@ export default function Inicio({navigation}) {
       {
         service.map((service) => {
           return (
-          <View style={{marginVertical: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
+          <View key={service.id} style={{marginVertical: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
             <Text style={styles.servico}>{service.service}</Text>
             <Text style={styles.valor}>R$ {service.preco}</Text>
-            <Button title="Fazer Reserva">Reserva</Button>
+            <Button title="Fazer Reserva" onPress={() => navigation.navigate('CalendarScreen', {service})}>Reserva</Button>
           </View>
           )
         })

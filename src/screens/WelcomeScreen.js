@@ -1,9 +1,25 @@
 import { View, Text, Button, StyleSheet, ImageBackground, TouchableOpacity, Dimensions } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 
 import bg from "../../assets/images/splash.jpg";
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
 export default function WelcomeScreen({ navigation }) {
+  useEffect(() => {
+    async function init() {
+
+      const user = await AsyncStorage.getItem('@user')
+
+      if (!user) return 
+
+      navigation.navigate('Principal')
+    }
+
+    init()
+  }, [])
+
   return (
     <ImageBackground source={bg} style={styles.backgroundImage}>
       <View style={styles.container}>

@@ -12,6 +12,8 @@ import {
   createUserWithEmailAndPassword
 } from "firebase/auth";
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 export default function Cadastro({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,12 +23,14 @@ export default function Cadastro({ navigation }) {
   const signUp = async () => {
     setLoading(true);
     try {
-      const response = await createUserWithEmailAndPassword(
+      const {user: {accessToken, uid}} = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
-      console.log(response);
+
+      await AsyncStorage.setItem('@user', JSON.stringify({accessToken, uid, email}))
+      
       alert("Cadastro realizado com sucesso!!");
       navigation.replace('Principal');
     } catch (error) {

@@ -6,6 +6,9 @@ import { FIREBASE_AUTH } from "../config/FirebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import bg from "../../assets/images/splash.jpg";
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
 export default function Login({ navigation }) {
 
   const [email, setEmail] = useState("");
@@ -16,7 +19,10 @@ export default function Login({ navigation }) {
   const signIn = async () => {
     setLoading(true);
     try {
-      const response = await signInWithEmailAndPassword(auth, email, password);
+      const {user: {accessToken, uid}} = await signInWithEmailAndPassword(auth, email, password);
+
+      await AsyncStorage.setItem('@user', JSON.stringify({accessToken, uid, email}))
+
       // console.log(response);
       navigation.replace("Principal");
     } catch (error) {
