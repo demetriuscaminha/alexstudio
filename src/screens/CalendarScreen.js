@@ -3,13 +3,12 @@ import { View, Text, Button } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker'
 
 
-const Schedule = ({route}) => {
+const Schedule = () => {
   
   const [date, setDate] = useState(new Date(1598051730000));
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
 
-  const { service } = route.params;
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
@@ -34,7 +33,6 @@ const Schedule = ({route}) => {
 
   return (
     <View style={{ flex: 1 }}>
-      <Text>Serviço: {service}</Text>
       <Text>selected: {date.toLocaleString()}</Text>
       <View style={{height: 20}}></View>
       <Button onPress={showDatepicker} title="Selecione uma Data" />
