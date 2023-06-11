@@ -1,4 +1,4 @@
-import { View, Text, Button, StyleSheet, ImageBackground, TouchableOpacity, Dimensions } from "react-native";
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Dimensions } from "react-native";
 import React, { useEffect } from "react";
 
 import bg from "../../assets/images/splash.jpg";

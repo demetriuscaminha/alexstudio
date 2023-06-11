@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { View, ActivityIndicator,
-  KeyboardAvoidingView, TouchableOpacity, Text, Dimensions, StyleSheet, ImageBackground } from "react-native";
-import { TextInput } from 'react-native-paper';
+  KeyboardAvoidingView, TouchableOpacity, Text, Dimensions, StyleSheet, ImageBackground, TextInput } from "react-native";
 import { FIREBASE_AUTH } from "../config/FirebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import bg from "../../assets/images/splash.jpg";
@@ -38,8 +37,6 @@ export default function Login({ navigation }) {
     <View style={styles.container}>
       <KeyboardAvoidingView>
         <TextInput
-          label="Email"
-          mode='outlined'
           value={email}
           style={styles.inputField}
           placeholder="E-mail"
@@ -47,8 +44,6 @@ export default function Login({ navigation }) {
           onChangeText={(text) => setEmail(text)}
         ></TextInput>
         <TextInput
-          label="Senha"
-          value={password}
           style={styles.inputField}
           placeholder="Password"
           autoCapitalize="none"
@@ -74,13 +69,6 @@ export default function Login({ navigation }) {
             >
               <Text style={styles.title}>Registre-se</Text>
             </TouchableOpacity>
-            
-            <TouchableOpacity
-             onPress={() => navigation.navigate("Calendar")}
-              style={styles.button}
-            >
-              <Text style={styles.title}>Calendário</Text>
-            </TouchableOpacity>
           </>
         )}
       </KeyboardAvoidingView>
@@ -105,15 +93,15 @@ const styles = StyleSheet.create({
   inputField: {
     width: larguraTela *0.8,
     marginVertical: 10,
-    backgroundColor: 'transparent',
+    backgroundColor: 'white',
     borderColor: '#FFF9EF',
     borderStyle: 'solid',
     borderWidth: 1,
     borderRadius:0,
-    placeholder: 'white',
+    padding: 10
   },
   button: {
-    width: larguraTela * 0.7,
+    width: larguraTela * 0.8,
     backgroundColor: "#FFF9EF",
     padding: 10,
     justifyContent: 'center',
