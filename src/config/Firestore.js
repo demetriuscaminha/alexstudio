@@ -11,6 +11,16 @@ export async function saveService(data) {
     }
 }
 
+export async function saveAgendamento(data) {
+    try {
+        await addDoc(collection(FIREBASE_DB, "agenda"), data)
+        return 'ok'
+    } catch (error) {
+        console.log("Erro ao salvar o produto", error)
+        return "erro"
+    }
+}
+
 export async function listService(data) {
     try {
         const querySnapshot = await getDocs(collection(FIREBASE_DB, "services"));

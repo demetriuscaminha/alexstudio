@@ -8,7 +8,6 @@ export default function AddServicos({navigation}) {
     const [preco, setPreco] = useState('');
   
     async function save(){
-      if (service == '' || preco == ''){}
   
       let resultado = await saveService({
           service,

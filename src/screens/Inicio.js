@@ -42,8 +42,6 @@ export default function Inicio({ navigation }) {
     const servicesFirestore = await listService();
     setService(servicesFirestore);
 
-    navigation.navigate('Calendar', { service: servicesFirestore.service });
-    console.log({ servicesFirestore });
     setRefreshing(false);
   }
 
@@ -54,9 +52,7 @@ export default function Inicio({ navigation }) {
   useEffect(() => {
     async function init() {
       const user = await AsyncStorage.getItem("@user");
-
       const parsedUser = JSON.parse(user);
-      console.log("User ID:", parsedUser.uid);
     }
 
     init();
@@ -103,8 +99,8 @@ export default function Inicio({ navigation }) {
               <Text style={styles.valor}>R$ {service.preco}</Text>
               <Button
                 title="Fazer Reserva"
-                onPress={() => navigation.navigate("Calendar", { service })}
-                >
+                onPress={() => navigation.navigate("Calendar", ({ servico: service }))}
+              >
                 Reserva
               </Button>
             </View>
